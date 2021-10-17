@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using Vector2 = UnityEngine.Vector2;
 
-public class PlayerController : MonoBehaviour
+public class ShipEngene : MonoBehaviour
 {
 
     [SerializeField] private float _speed;
