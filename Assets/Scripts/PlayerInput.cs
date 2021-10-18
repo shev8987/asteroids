@@ -3,12 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerInput: MonoBehaviour
+public class PlayerInput: MonoBehaviour, IShipInput
 {
-    public float HorizontalInput { get; private set; }
     
-    public float VerticalInput { get; private set; }
-    
+    public float Rotation { get; private set; }
+    public float Thrust { get; private set; }
     public bool FireWeapon { get; private set; }
     
     public event Action OnFire = delegate {  };
@@ -16,14 +15,18 @@ public class PlayerInput: MonoBehaviour
 
     private void Update()
     {
-        HorizontalInput = Input.GetAxis("Horizontal");
-        VerticalInput = Input.GetAxis("Vertical");
         FireWeapon = Input.GetButtonDown("Fire1");
-
+        
         if (FireWeapon)
         {
             OnFire();
         }
-
     }
+
+    public void ReadInput()
+    {
+        Rotation = Input.GetAxis("Horizontal");
+        Thrust = Input.GetAxis("Vertical");
+    }
+
 }

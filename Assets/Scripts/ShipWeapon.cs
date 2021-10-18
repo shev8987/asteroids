@@ -17,7 +17,7 @@ public class ShipWeapon : MonoBehaviour
     
     private PlayerInput _playerInput;
 
-    private float _nextFire = 0f;
+    private float nextFire = 0f;
     
         private void Awake()
         {
@@ -29,19 +29,18 @@ public class ShipWeapon : MonoBehaviour
             }
         }
         
-        private void Update()
+        private void FixedUpdate()
         {
-
-            if (_playerInput.FireWeapon && Time.time >= _nextFire)
+            if (_playerInput.FireWeapon && Time.time > nextFire)
             {
-                _nextFire = 1f / _fireRate;
+                nextFire = Time.time + _fireRate;
                 HandleFire();
             }
         }
         private void HandleFire()
         {
-            var bullet = Instantiate(_projectilePrefab);
-            bullet.position = _firePoint.position;
+            var bullet = Instantiate(_projectilePrefab, _firePoint);
+            bullet.SetParent(null);
         }
         
 }
