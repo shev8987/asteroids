@@ -13,8 +13,7 @@ GameObject:
   - component: {fileID: 1984878892794303846}
   - component: {fileID: 5517390162958979842}
   - component: {fileID: 2620268967984680331}
-  - component: {fileID: 7623258167379811640}
-  - component: {fileID: 1249225748953630098}
+  - component: {fileID: 8508318333564340988}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -30,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1984878892794303850}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1984878893598200807}
@@ -54,7 +53,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f99ee2d547d1fda43a22878aab35a278, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _shipSettings: {fileID: 0}
+  _shipSettings: {fileID: 11400000, guid: 0436d40c6ba370144b66a37943cdb83d, type: 2}
 --- !u!114 &1984878892794303846
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79,8 +78,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 659933fbdfdeb694c9d0e744c1b37989, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _projectilePrefab: {fileID: 0}
-  _firePoint: {fileID: 0}
+  _projectilePrefab: {fileID: 5808265828042245663, guid: ac8f0c5c6e7f07f43b7b79677931e64e, type: 3}
+  _firePoint: {fileID: 6446403642993611856}
   _fireRate: 1
 --- !u!114 &2620268967984680331
 MonoBehaviour:
@@ -94,7 +93,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8991f972a1da8c42aef5fc126e13887, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!54 &7623258167379811640
+--- !u!54 &8508318333564340988
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -108,22 +107,8 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
---- !u!114 &1249225748953630098
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1984878892794303850}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85b21620d2148b24e9630f751e51199d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _positionX: 11.1
-  _positionZ: 5.5
 --- !u!1 &1984878893598200804
 GameObject:
   m_ObjectHideFlags: 0
@@ -626,7 +611,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7299390885580521070}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.279, z: 0.404}
+  m_LocalPosition: {x: -0, y: 0.279, z: 0.714}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1984878892794303847}

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89f24204c02fefb43bc2defb1e280325, type: 3}
   m_Name: AsteroidSettingsLittle
   m_EditorClassIdentifier: 
-  _turnSpeed: 70
-  _moveSpeed: 50
+  _turnSpeed: 2
+  _moveSpeed: 1
   _useAI: 1

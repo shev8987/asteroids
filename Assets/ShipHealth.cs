@@ -10,6 +10,7 @@ public class ShipHealth : MonoBehaviour
         if (other.collider.CompareTag("Enemy") || other.collider.CompareTag("Asteroid"))
         {
             Destroy(gameObject);
+            GameManager.Instance.GaveOver();
         }
     }
 }

@@ -10,8 +10,6 @@ public class ShipEngene : MonoBehaviour
     
     private PlayerInput _playerInput;
 
-    private Rigidbody _rigidbody;
-
     private IShipInput _shipInput;
 
     private ShipMotor _shipMotor;
@@ -20,9 +18,8 @@ public class ShipEngene : MonoBehaviour
     private void Awake()
     {
         _playerInput = GetComponent<PlayerInput>();
-        _rigidbody = GetComponent<Rigidbody>();
-        _shipInput = _shipSettings.UseAI? (IShipInput) new EnemyInput() : new PlayerInput();
-        _shipMotor = new ShipMotor(_shipInput, transform, _rigidbody, _shipSettings);
+        _shipInput = _shipSettings.UseAI? (IShipInput) new AsteroidInput() : new PlayerInput();
+        _shipMotor = new ShipMotor(_shipInput, transform, _shipSettings);
     }
 
     private void Update()

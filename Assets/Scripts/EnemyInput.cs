@@ -1,15 +1,36 @@
 using UnityEngine;
-using Random = UnityEngine.Random;
 
-public class EnemyInput : MonoBehaviour, IShipInput
+public class EnemyInput : MonoBehaviour
 {
-    public float Rotation { get; private set; }
-    public float Thrust { get; private set; }
+    private Rigidbody enemyRB;
     
-    public void ReadInput()
+    private GameObject _playerController;
+
+    [SerializeField] 
+    private float speed = 1f;
+    
+    // Start is called before the first frame update
+    void Start()
     {
-        Rotation = Random.Range(-1f, 1f);
-        Thrust = Random.Range(0, 1f);
+        _playerController = GameObject.FindWithTag("Player");
+        enemyRB = GetComponent<Rigidbody>();
     }
-    
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (_playerController != null)
+        {
+            var lookDirection = (_playerController.transform.position - transform.position).normalized;
+            transform.Translate(lookDirection * speed * Time.deltaTime);
+        }
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.collider.CompareTag("Player"))
+        {
+            Destroy(gameObject);
+        }
+    }
 }

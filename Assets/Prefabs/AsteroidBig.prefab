@@ -13,10 +13,8 @@ GameObject:
   - component: {fileID: 2717280356539016957}
   - component: {fileID: 904146078880813756}
   - component: {fileID: -8920462822924272432}
-  - component: {fileID: 3119114956191110469}
   - component: {fileID: 5766988061704138909}
   - component: {fileID: -5136885465524756862}
-  - component: {fileID: 4523995938904052002}
   m_Layer: 0
   m_Name: AsteroidBig
   m_TagString: Asteroid
@@ -32,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6037230458705025808}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.2, z: 0}
+  m_LocalPosition: {x: 0, y: 0.788, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children: []
   m_Father: {fileID: 0}
@@ -112,18 +110,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ba91642b9d44304e92211d7642324c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3119114956191110469
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6037230458705025808}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce27cd34d8ca7404790473b6731ce010, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  changeTime: 5
+  typeAsteroid: 0
+  countFraction: 3
 --- !u!114 &5766988061704138909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,22 +137,8 @@ Rigidbody:
   m_Mass: 20
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 4
+  m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &4523995938904052002
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6037230458705025808}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85b21620d2148b24e9630f751e51199d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _positionX: 11.1
-  _positionZ: 5.5

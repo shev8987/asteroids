@@ -12,11 +12,9 @@ GameObject:
   - component: {fileID: 3891638778030867489}
   - component: {fileID: 579388960710968799}
   - component: {fileID: 2392523245746303390}
-  - component: {fileID: 975296421945264789}
   - component: {fileID: 2076200207597543928}
   - component: {fileID: 4770902966467104941}
   - component: {fileID: 1368378207533633688}
-  - component: {fileID: -8202482241304672586}
   m_Layer: 0
   m_Name: AsteroidLittle
   m_TagString: Asteroid
@@ -32,8 +30,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9112842785791834162}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.2, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalPosition: {x: 0, y: 0.39, z: 0}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -100,18 +98,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &975296421945264789
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9112842785791834162}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce27cd34d8ca7404790473b6731ce010, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2076200207597543928
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,6 +110,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ba91642b9d44304e92211d7642324c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  changeTime: 1
+  typeAsteroid: 2
+  countFraction: 0
 --- !u!114 &4770902966467104941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,25 +134,11 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9112842785791834162}
   serializedVersion: 2
-  m_Mass: 5
+  m_Mass: 20
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 4
+  m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &-8202482241304672586
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9112842785791834162}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85b21620d2148b24e9630f751e51199d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _positionX: 11.1
-  _positionZ: 5.5

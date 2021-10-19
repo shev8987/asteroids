@@ -3,42 +3,43 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
+using UnityEngine.UIElements;
 using Random = UnityEngine.Random;
 
 public class SpawnManager : MonoBehaviour
 {
     [SerializeField] 
-    private Enemy enemyPrefab;
-
-    [SerializeField]
-    private int countEnemy = 2;
+    private List<GameObject> enemyPrefab;
     
     [SerializeField] 
-    private List<Asteroid> asteroidsPrefab;
+    private GameObject playerInput;
     
     [SerializeField] 
-    private List<Transform> _listSpawnPosition;
+    private List<Transform> listSpawnPosition;
 
-    private void Start()
+    public void Launch()
     {
-        foreach (var t in asteroidsPrefab)
+        Instantiate(playerInput);
+        InvokeRepeating("Spawn", 1f, 10f);
+    }
+
+    public void Spawn()
+    {
+        foreach (var t in enemyPrefab)
         {
-            var i = Random.Range(0, asteroidsPrefab.Count - 1);
-            var randomCount = Random.Range(2, 5);
-            Spawn(randomCount, asteroidsPrefab[i].gameObject);
+            var i = Random.Range(0, enemyPrefab.Count - 1);
+            CreateObject(1, enemyPrefab[i].gameObject);
         }
-        
-        Spawn(2, enemyPrefab.gameObject);
     }
 
     private Vector3 GenerateSpawnPosition()
     {
-        var  point = Random.Range(0, _listSpawnPosition.Count-1);
+        var  point = Random.Range(0, listSpawnPosition.Count-1);
         
-        return _listSpawnPosition[point].position;
+        return listSpawnPosition[point].position;
     }
 
-    private void Spawn(int count, GameObject prefab)
+    private void CreateObject(int count, GameObject prefab)
     {
         for (int i = 0; i < count; i++)
         {

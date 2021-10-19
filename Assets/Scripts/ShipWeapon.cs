@@ -29,7 +29,7 @@ public class ShipWeapon : MonoBehaviour
             }
         }
         
-        private void FixedUpdate()
+        private void Update()
         {
             if (_playerInput.FireWeapon && Time.time > nextFire)
             {
@@ -39,7 +39,7 @@ public class ShipWeapon : MonoBehaviour
         }
         private void HandleFire()
         {
-            var bullet = Instantiate(_projectilePrefab, _firePoint);
+            var bullet = Instantiate(_projectilePrefab, _firePoint.position, _firePoint.rotation);
             bullet.SetParent(null);
         }
         

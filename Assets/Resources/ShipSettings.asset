@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89f24204c02fefb43bc2defb1e280325, type: 3}
   m_Name: ShipSettings
   m_EditorClassIdentifier: 
-  _turnSpeed: 25
-  _moveSpeed: 15
+  _turnSpeed: 100
+  _moveSpeed: 10
   _useAI: 0

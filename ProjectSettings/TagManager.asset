@@ -8,6 +8,8 @@ TagManager:
   - Plane
   - Undefined
   - Asteroid
+  - Bullet
+  - Laser
   layers:
   - Default
   - TransparentFX
