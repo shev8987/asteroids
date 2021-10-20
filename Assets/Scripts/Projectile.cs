@@ -21,8 +21,7 @@ public class Projectile : MonoBehaviour
             if (hit.collider.CompareTag("Asteroid") || hit.collider.CompareTag("Enemy"))
             {
                 ObjectPooler.Instance.ReturnToPool(gameObject);
-                ObjectPooler.Instance.ReturnToPool(hit.collider.gameObject);
-                GameManager.Instance.UpdateToScore(1);
+                hit.collider.GetComponent<EnemyHealth>().Die();
             }
         }
 

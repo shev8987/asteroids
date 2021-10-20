@@ -3,18 +3,15 @@ using Object = System.Object;
 
 public class EnemyInput : MonoBehaviour
 {
-    private Rigidbody enemyRB;
-    
-    private GameObject _playerController;
-
     [SerializeField] 
     private float speed = 1f;
+    
+    private GameObject _playerController;
     
     // Start is called before the first frame update
     void Start()
     {
         _playerController = GameObject.FindWithTag("Player");
-        enemyRB = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame

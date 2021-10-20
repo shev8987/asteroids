@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: -8920462822924272432}
   - component: {fileID: 5766988061704138909}
   - component: {fileID: -5136885465524756862}
+  - component: {fileID: -6302063850372917142}
+  - component: {fileID: -6457311685162688191}
   m_Layer: 0
   m_Name: AsteroidBig
   m_TagString: Asteroid
@@ -92,7 +94,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6037230458705025808}
-  m_Material: {fileID: 13400000, guid: 83ba5293b983a9d499370367da35f0dc, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -111,8 +113,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   changeTime: 5
-  typeAsteroid: 0
-  countFraction: 3
 --- !u!114 &5766988061704138909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -142,3 +142,29 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!114 &-6302063850372917142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6037230458705025808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 230824152c1925e46b7ff398457ac2c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  countFraction: 2
+  fract: {fileID: 4237631526180452451, guid: 36494a714e63816409744e8849a7db76, type: 3}
+--- !u!114 &-6457311685162688191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6037230458705025808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f308c9a0a4234a74eb319b0324db67fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2392523245746303390}
   - component: {fileID: 1368378207533633688}
   - component: {fileID: 464067049511046314}
+  - component: {fileID: -8590233014353007373}
   m_Layer: 0
   m_Name: Alien
   m_TagString: Enemy
@@ -91,7 +92,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9112842785791834162}
-  m_Material: {fileID: 13400000, guid: 83ba5293b983a9d499370367da35f0dc, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -126,3 +127,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
+--- !u!114 &-8590233014353007373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9112842785791834162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f308c9a0a4234a74eb319b0324db67fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

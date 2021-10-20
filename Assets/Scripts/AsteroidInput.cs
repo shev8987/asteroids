@@ -8,17 +8,10 @@ public class AsteroidInput : MonoBehaviour, IShipInput
     [SerializeField] 
     private float changeTime = 5f;
 
-    [SerializeField] 
-    private TypeAsteroid typeAsteroid;
-
-    [SerializeField]
-    private int countFraction = 0;
     
     public float Rotation { get; private set; }
     public float Thrust { get; private set; }
     public Vector3 Route { get; private set; }
-
-    public TypeAsteroid TypeAsteroid => typeAsteroid;
 
     private float _nextChange = 0f;
     
@@ -49,14 +42,5 @@ public class AsteroidInput : MonoBehaviour, IShipInput
         var angle = Random.Range(5, 30);
         var index = Random.Range(0, _routes.Length - 1);
         Route = _routes[index] * Mathf.Sign(angle);
-    }
-
-    private void Fraction(int fractionCount, TypeAsteroid type)
-    {
-        for (int i = 0; i < fractionCount; i++)
-        {
-            Instantiate(this, transform);
-            this.typeAsteroid = type;
-        }
     }
 }
