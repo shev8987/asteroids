@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
 using UnityEngine;
+using Object = System.Object;
 
 public class Projectile : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class Projectile : MonoBehaviour
     
     private void Update()
     {
-        transform.Translate(Vector3.forward * _speed * Time.deltaTime);
+        transform.Translate(transform.forward * _speed * Time.deltaTime);
         
         RaycastHit hit;
         var fwd = transform.TransformDirection ( Vector3.forward );
@@ -19,8 +20,8 @@ public class Projectile : MonoBehaviour
         {
             if (hit.collider.CompareTag("Asteroid") || hit.collider.CompareTag("Enemy"))
             {
-                Destroy(gameObject);
-                Destroy(hit.collider.gameObject);
+                ObjectPooler.Instance.ReturnToPool(gameObject);
+                ObjectPooler.Instance.ReturnToPool(hit.collider.gameObject);
                 GameManager.Instance.UpdateToScore(1);
             }
         }
@@ -28,7 +29,7 @@ public class Projectile : MonoBehaviour
         if (transform.position.x > 11 || transform.position.x < -11 || transform.position.z > 7 ||
             transform.position.z < -7)
         {
-            Destroy(gameObject);
+            ObjectPooler.Instance.ReturnToPool(gameObject);
         }
 
     }

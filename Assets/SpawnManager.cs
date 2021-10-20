@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UIElements;
+using Object = System.Object;
 using Random = UnityEngine.Random;
 
 public class SpawnManager : MonoBehaviour
@@ -44,7 +45,8 @@ public class SpawnManager : MonoBehaviour
         for (int i = 0; i < count; i++)
         {
             var point = GenerateSpawnPosition();
-            Instantiate(prefab, point, prefab.transform.rotation);
+            var obj = ObjectPooler.Instance.GetObjectFromPool(prefab.name);
+            obj.transform.position = point;
         }
     }
 }

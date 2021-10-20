@@ -1,4 +1,5 @@
 using UnityEngine;
+using Object = System.Object;
 
 public class EnemyInput : MonoBehaviour
 {
@@ -30,7 +31,8 @@ public class EnemyInput : MonoBehaviour
     {
         if (other.collider.CompareTag("Player"))
         {
-            Destroy(gameObject);
+            ObjectPooler.Instance.ReturnToPool(gameObject);
+
         }
     }
 }
