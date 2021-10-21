@@ -3,6 +3,9 @@ using UnityEngine;
 using UnityEngine.PlayerLoop;
 using Vector2 = UnityEngine.Vector2;
 
+/// <summary>
+/// Класс здоровья корабля
+/// </summary>
 public class ShipEngene : MonoBehaviour
 {
 
@@ -14,10 +17,10 @@ public class ShipEngene : MonoBehaviour
 
     private ShipMotor _shipMotor;
     
-    
     private void Awake()
     {
         _playerInput = GetComponent<PlayerInput>();
+        // если установлен чекбокс AI то объект сам по себе управляется иначе управоляет игрок
         _shipInput = _shipSettings.UseAI? (IShipInput) new AsteroidInput() : new PlayerInput();
         _shipMotor = new ShipMotor(_shipInput, transform, _shipSettings);
     }
@@ -25,17 +28,6 @@ public class ShipEngene : MonoBehaviour
     private void Update()
     {
         _shipInput.ReadInput();
-    }
-
-    private void FixedUpdate()
-    {
-        if (_playerInput != null && _playerInput.Thrust >= 0)
-        {
-            _shipMotor.Move();
-        }
-        else
-        {
-            _shipMotor.Move();
-        }
+        _shipMotor.Move();
     }
 }

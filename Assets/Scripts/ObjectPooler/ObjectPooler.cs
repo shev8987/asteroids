@@ -2,6 +2,9 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Пулл объектов
+/// </summary>
 public class ObjectPooler : MonoBehaviour
 {
     public static ObjectPooler Instance { get; private set; }
@@ -9,13 +12,26 @@ public class ObjectPooler : MonoBehaviour
     [Serializable]
     public struct ObjectInfo
     {
+        /// <summary>
+        /// Объект создания
+        /// </summary>
         public GameObject Prefab;
+        
+        /// <summary>
+        /// Количество копий
+        /// </summary>
         public int Count;
     }
 
+    /// <summary>
+    /// Список пулов для создания
+    /// </summary>
     [SerializeField]
     private List<ObjectInfo> ObjectInfos;
 
+    /// <summary>
+    /// Список созданных пулов
+    /// </summary>
     private List<PoolContainer> _poolContainers = new List<PoolContainer>();
 
     private void Awake()
@@ -36,7 +52,7 @@ public class ObjectPooler : MonoBehaviour
         var emptyGO = new GameObject();
         foreach (var info in ObjectInfos)
         {
-            // создаем контейенер
+            // создаем контейенер на основе имени объекта
             var container = Instantiate(emptyGO, transform, false);
             container.name = info.Prefab.name.ToUpper();
             var pool = new PoolContainer(container.transform);
@@ -53,8 +69,7 @@ public class ObjectPooler : MonoBehaviour
         
         Destroy(emptyGO);
     }
-    
-    
+
     /// <summary>
     /// Создание объекта для пула
     /// </summary>
@@ -69,8 +84,14 @@ public class ObjectPooler : MonoBehaviour
         return go;
     }
 
+    /// <summary>
+    /// Получаем объект из пула
+    /// </summary>
+    /// <param name="nameObject">Имя объекта</param>
+    /// <returns></returns>
     public GameObject GetObjectFromPool(string nameObject)
     {
+        // todo переделать на dictionary чтобы так не искать каждый раз
         var pool = _poolContainers.Find(x => x.Container.name == nameObject.ToUpper());
         var info = ObjectInfos.Find(x => x.Prefab.name == nameObject);
         
@@ -83,6 +104,10 @@ public class ObjectPooler : MonoBehaviour
         return obj;
     }
 
+    /// <summary>
+    /// Возвращаем объект в пулл
+    /// </summary>
+    /// <param name="obj"></param>
     public void ReturnToPool(GameObject obj)
     {
         // todo переделать на dictionary чтобы так не искать каждый раз

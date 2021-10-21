@@ -37,7 +37,6 @@ public class ShipWeapon : MonoBehaviour
         {
             var projectile = ObjectPooler.Instance.GetObjectFromPool(_projectilePrefab.name);
             projectile.transform.position = _firePoint.position;
-            projectile.transform.SetParent(null);
         }
         
 }

@@ -3,8 +3,14 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
+/// <summary>
+/// Класс управления астероидом
+/// </summary>
 public class AsteroidInput : MonoBehaviour, IShipInput
 {
+    /// <summary>
+    /// Время смены позиции
+    /// </summary>
     [SerializeField] 
     private float changeTime = 5f;
 
@@ -13,6 +19,9 @@ public class AsteroidInput : MonoBehaviour, IShipInput
     public float Thrust { get; private set; }
     public Vector3 Route { get; private set; }
 
+    /// <summary>
+    /// Следуюущая возможность сменить позицию
+    /// </summary>
     private float _nextChange = 0f;
     
     private Vector3[] _routes = new Vector3[]
@@ -34,11 +43,15 @@ public class AsteroidInput : MonoBehaviour, IShipInput
         ChangeRoute();
     }
 
+    /// <summary>
+    /// Сменить позицию рандомно
+    /// </summary>
     private void ChangeRoute()
     {
         if (!(Time.time > _nextChange)) return;
         
         _nextChange = Time.time + changeTime;
+        
         var angle = Random.Range(5, 30);
         var index = Random.Range(0, _routes.Length - 1);
         Route = _routes[index] * Mathf.Sign(angle);

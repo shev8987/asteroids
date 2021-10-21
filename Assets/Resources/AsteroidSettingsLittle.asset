@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: AsteroidSettingsLittle
   m_EditorClassIdentifier: 
   _turnSpeed: 2
-  _moveSpeed: 1
+  _moveSpeed: 3
   _useAI: 1

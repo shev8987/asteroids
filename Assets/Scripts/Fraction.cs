@@ -1,9 +1,8 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
+/// <summary>
+/// Класс разделения на фракции
+/// </summary>
 public class Fraction : MonoBehaviour
 {
     [SerializeField]
@@ -12,6 +11,10 @@ public class Fraction : MonoBehaviour
     [SerializeField]
     private GameObject fract;
     
+    /// <summary>
+    /// Разделение на фракции
+    /// </summary>
+    /// <param name="position">Позиция спавна фракций</param>
     public void SplitOnFraction(Vector3 position)
     {
         for (var i = 0; i < countFraction; i++)

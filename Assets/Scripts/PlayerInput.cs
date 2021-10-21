@@ -1,6 +1,9 @@
 using System;
 using UnityEngine;
 
+/// <summary>
+/// Класс обработки ввода игрока
+/// </summary>
 public class PlayerInput: MonoBehaviour, IShipInput
 {
     
@@ -25,8 +28,9 @@ public class PlayerInput: MonoBehaviour, IShipInput
     public void ReadInput()
     {
         Rotation = Input.GetAxis("Horizontal");
-        Thrust = Input.GetAxis("Vertical");
+        Thrust =  Input.GetAxis("Vertical") > 0 ? 1 : 0;
         Route = Vector3.forward;
     }
+    
 
 }
