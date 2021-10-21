@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 /// <summary>
@@ -24,11 +25,8 @@ public class SpawnManager : MonoBehaviour
     /// </summary>
     [SerializeField] 
     private List<Transform> listSpawnPosition;
-
-    /// <summary>
-    /// Запуск
-    /// </summary>
-    public void Launch()
+    
+    private void Start()
     {
         Instantiate(playerInput);
         InvokeRepeating("Spawn", 1f, 10f);
@@ -51,8 +49,7 @@ public class SpawnManager : MonoBehaviour
     /// </summary>
     public void ReSpawn()
     {
-        ClearPlane();
-        Launch();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     /// <summary>
