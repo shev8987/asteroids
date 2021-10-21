@@ -10,6 +10,8 @@ namespace UI
     {
         [SerializeField] 
         private TextMeshProUGUI scoreText;
+
+        public TextMeshProUGUI ScoreText => scoreText;
     
         private void Start()
         {

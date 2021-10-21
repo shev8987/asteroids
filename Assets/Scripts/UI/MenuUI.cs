@@ -77,6 +77,7 @@ namespace UI
         /// </summary>
         public void RestartGame()
         {
+            gameUI.ScoreText.text = "Score: " + 0;
             gameUI.gameObject.SetActive(true);
             scoreText.gameObject.SetActive(false);
             scoreText.text = "Score: " + 0;

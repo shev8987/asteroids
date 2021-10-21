@@ -61,10 +61,7 @@ public class SpawnManager : MonoBehaviour
     public void ClearPlane()
     {
         CancelInvoke("Spawn");
-        foreach (var obj in enemyPrefab)
-        {
-            ObjectPooler.Instance.ReturnToPool(obj);
-        }
+        ObjectPooler.Instance.ReturnAllObjectsToPoll();
     }
     
     

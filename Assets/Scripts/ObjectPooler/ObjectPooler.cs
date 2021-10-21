@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 /// <summary>
@@ -114,5 +115,17 @@ public class ObjectPooler : MonoBehaviour
         var pool = _poolContainers.Find(x => obj.name.ToUpper().Contains(x.Container.name));
         pool.Objects.Enqueue(obj);
         obj.SetActive(false);
+    }
+
+    public void ReturnAllObjectsToPoll()
+    {
+        foreach (var pool in _poolContainers)
+        {
+            foreach (var obj in pool.Objects.Where(x => x.activeSelf))
+            {
+                pool.Objects.Enqueue(obj);
+                obj.SetActive(false);
+            }
+        }
     }
 }
