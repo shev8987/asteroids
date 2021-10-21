@@ -61,7 +61,6 @@ public class SpawnManager : MonoBehaviour
     public void ClearPlane()
     {
         CancelInvoke("Spawn");
-        ObjectPooler.Instance.ReturnAllObjectsToPoll();
     }
     
     
