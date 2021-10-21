@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public event EventHandler EGameOver;
     
-    private int _score;
+    private int _scoreTotal;
     
     public static GameManager Instance { get; private set; }
     
@@ -41,11 +41,17 @@ public class GameManager : MonoBehaviour
             Instance = this;
         }
     }
+
+    public void ResetScore()
+    {
+        _scoreTotal = 0;
+        EUpdateScore?.Invoke(this, _scoreTotal);
+    }
     
     public virtual void OnEUpdateScore(int e)
     {
-        _score += e;
-        EUpdateScore?.Invoke(this, _score);
+        _scoreTotal += e;
+        EUpdateScore?.Invoke(this, _scoreTotal);
     }
 
     public virtual void OnEGameOver()
