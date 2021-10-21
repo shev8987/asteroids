@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3052913280732015521}
   - component: {fileID: 2746974896195521383}
-  - component: {fileID: 4739477569950617742}
   m_Layer: 0
   m_Name: Laser
   m_TagString: Laser
@@ -45,19 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4409f3ce99bde384d8b440f67d5341a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 5
---- !u!114 &4739477569950617742
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6699912216771709296}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a734bc9d2b6fb26498818d901c56ce8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  speed: 5
 --- !u!1 &8439907635055978977
 GameObject:
   m_ObjectHideFlags: 0
@@ -70,8 +57,9 @@ GameObject:
   - component: {fileID: 4489117773986937757}
   - component: {fileID: 2513800866724622673}
   - component: {fileID: 810838764148412841}
+  - component: {fileID: 2961971641067470869}
   m_Layer: 0
-  m_Name: Capsule
+  m_Name: Capsule3D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -154,3 +142,16 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2961971641067470869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8439907635055978977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a734bc9d2b6fb26498818d901c56ce8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distance: 5
