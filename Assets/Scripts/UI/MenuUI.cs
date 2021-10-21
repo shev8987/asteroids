@@ -15,16 +15,14 @@ namespace UI
     
         [SerializeField]
         private Button restartButton;
-    
-        [SerializeField]
-        private Button launchButton;
-
+        
         [SerializeField] private GameUI gameUI;
     
         private void Start()
         {
             GameManager.Instance.EUpdateScore += UpdateScore;
             GameManager.Instance.EGameOver += OnGameOver;
+            StartGame();
         }
     
         /// <summary>
@@ -55,7 +53,6 @@ namespace UI
             GameManager.Instance.ResetScore();
             gameUI.gameObject.SetActive(true);
             scoreText.gameObject.SetActive(false);
-            launchButton.gameObject.SetActive(false);
             restartButton.gameObject.SetActive(false);
         }
     
