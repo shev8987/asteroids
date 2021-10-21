@@ -52,9 +52,7 @@ namespace UI
         /// </summary>
         public void StartGame()
         {
-            scoreText.text = "Score: " + 0;
-            GameManager.Instance.OnEUpdateScore(0);
-        
+            GameManager.Instance.ResetScore();
             gameUI.gameObject.SetActive(true);
             scoreText.gameObject.SetActive(false);
             launchButton.gameObject.SetActive(false);
@@ -77,20 +75,12 @@ namespace UI
         /// </summary>
         public void RestartGame()
         {
-            gameUI.ScoreText.text = "Score: " + 0;
+            GameManager.Instance.ResetScore();
+            
             gameUI.gameObject.SetActive(true);
             scoreText.gameObject.SetActive(false);
-            scoreText.text = "Score: " + 0;
-            GameManager.Instance.OnEUpdateScore(0);
             gameOverText.gameObject.SetActive(false);
             restartButton.gameObject.SetActive(false);
-        }
-
-    
-        private void OnDisable()
-        {
-            GameManager.Instance.EUpdateScore -= UpdateScore;
-            GameManager.Instance.EGameOver -= OnGameOver;
         }
     }
 }

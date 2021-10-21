@@ -116,16 +116,4 @@ public class ObjectPooler : MonoBehaviour
         pool.Objects.Enqueue(obj);
         obj.SetActive(false);
     }
-
-    public void ReturnAllObjectsToPoll()
-    {
-        foreach (var pool in _poolContainers)
-        {
-            foreach (var obj in pool.Objects.Where(x => x.activeSelf))
-            {
-                pool.Objects.Enqueue(obj);
-                obj.SetActive(false);
-            }
-        }
-    }
 }

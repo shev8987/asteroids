@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 
@@ -12,20 +13,16 @@ namespace UI
         private TextMeshProUGUI scoreText;
 
         public TextMeshProUGUI ScoreText => scoreText;
-    
+
         private void Start()
         {
             GameManager.Instance.EUpdateScore += UpdateScore;
         }
-    
+
         private void UpdateScore(object sender, int score)
         {
             scoreText.text = "Score: " + score;
         }
-
-        private void OnDisable()
-        {
-            GameManager.Instance.EUpdateScore -= UpdateScore;
-        }
+        
     }
 }

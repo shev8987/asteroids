@@ -23,6 +23,26 @@ public class PlayerInput: MonoBehaviour, IShipInput
         {
             OnFire();
         }
+
+        // todo Ограничение позиции корабля. Можно обойтись и колайдером, но пока сделал так.
+        if (transform.position.z >= GameManager.Instance.BorderZ)
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y, GameManager.Instance.BorderZ);
+        }
+        else if (transform.position.z <= - GameManager.Instance.BorderZ)
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y, -GameManager.Instance.BorderZ);
+        }
+
+        if (transform.position.x >= GameManager.Instance.BorderX)
+        {
+            transform.position = new Vector3(GameManager.Instance.BorderX, transform.position.y, transform.position.z);
+        }
+        else if (transform.position.x <= - GameManager.Instance.BorderX)
+        {
+            transform.position = new Vector3(-GameManager.Instance.BorderX, transform.position.y, transform.position.z);
+        }
+        
     }
 
     public void ReadInput()

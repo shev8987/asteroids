@@ -36,7 +36,7 @@ public class ShipWeapon : MonoBehaviour
         private void HandleFire()
         {
             var projectile = ObjectPooler.Instance.GetObjectFromPool(_projectilePrefab.name);
-            projectile.transform.position = _firePoint.position;
+            projectile.transform.SetPositionAndRotation(_firePoint.position, _firePoint.rotation);
         }
         
 }
