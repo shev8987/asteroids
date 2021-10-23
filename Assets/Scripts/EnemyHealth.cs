@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 /// <summary>
@@ -12,7 +11,6 @@ public class EnemyHealth : MonoBehaviour
     {
         _fraction = GetComponent<Fraction>();
     }
-
     
     /// <summary>
     /// Объект уничтожен

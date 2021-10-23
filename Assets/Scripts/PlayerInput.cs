@@ -1,29 +1,43 @@
 using System;
+using Ship;
 using UnityEngine;
 
 /// <summary>
 /// Класс обработки ввода игрока
 /// </summary>
-public class PlayerInput: MonoBehaviour, IShipInput
+public class PlayerInput: MonoBehaviour, IShipInput, IFireInput
 {
     
     public float Rotation { get; private set; }
     public float Thrust { get; private set; }
     public Vector3 Route { get; private set; }
-    public bool FireWeapon { get; private set; }
     
+    public bool FireClick { get; private set;  }
+    
+    public bool FireClickAdditional { get; private set;  }
     public event Action OnFire = delegate {  };
     
-
-    private void Update()
+    public event Action OnFireAdditional = delegate {  };
+    public void ReadInputFire()
     {
-        FireWeapon = Input.GetButtonDown("Fire1");
+        FireClick = Input.GetButtonDown("Fire1");
+        FireClickAdditional = Input.GetButtonDown("Fire2");
         
-        if (FireWeapon)
+        if (FireClick)
         {
             OnFire();
         }
-
+        
+        if (FireClickAdditional)
+        {
+            OnFireAdditional();
+        }
+    }
+    
+    private void Update()
+    {
+        ReadInputFire();
+        
         // todo Ограничение позиции корабля. Можно обойтись и колайдером, но пока сделал так.
         if (transform.position.z >= GameManager.Instance.BorderZ)
         {

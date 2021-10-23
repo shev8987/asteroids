@@ -1,3 +1,4 @@
+using Ship;
 using UnityEngine;
 
 public class ShipMotor
