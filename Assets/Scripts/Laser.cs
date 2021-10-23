@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 
 public class Laser : MonoBehaviour
 {
@@ -15,26 +17,19 @@ public class Laser : MonoBehaviour
     {
         _lineRenderer = GetComponent<LineRenderer>();
     }
-
-    private void OnEnable()
+    
+    public void Draw()
     {
         _lineRenderer.enabled = true;
+
+        StartCoroutine(UpdateLaserCoroutine(lifeTime));
     }
 
     private void Update()
     {
-        if (Input.GetButton("Fire2"))
-        {
-            _lineRenderer.SetPosition(0, transform.position);
-            StartCoroutine(UpdateLaserCoroutine(lifeTime));
-        }
-
-        if (Input.GetButtonUp("Fire2"))
-        {
-            DisableLaser();
-        }
+        _lineRenderer.SetPosition(0, transform.position);
     }
-    
+
     private void DisableLaser()
     {
         _lineRenderer.enabled = false;
@@ -43,10 +38,6 @@ public class Laser : MonoBehaviour
 
     private IEnumerator UpdateLaserCoroutine(float timer)
     {
-        if (timer <= 0)
-        {
-            DisableLaser();
-        }
         while (timer >= Time.deltaTime)
         {
             RaycastHit hit;
@@ -62,11 +53,14 @@ public class Laser : MonoBehaviour
                     }
                 }
             }
-            else _lineRenderer.SetPosition(1, transform.forward*5000);
+            else _lineRenderer.SetPosition(1, transform.forward * distance);
 
             timer -= Time.deltaTime;
             yield return null;
         }
+        
+        DisableLaser();
+        
     }
     
     
