@@ -123,6 +123,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponSettings: {fileID: 11400000, guid: 21fbbf5af31297a4b91655d4d130994d, type: 2}
   firePoint: {fileID: 6446403642993611856}
+  countShot: 2
+  reloadingTime: 5
 --- !u!1 &1984878893598200804
 GameObject:
   m_ObjectHideFlags: 0

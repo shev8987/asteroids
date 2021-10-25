@@ -24,7 +24,9 @@ public class GameManager : MonoBehaviour
     /// Событие обновления очков
     /// </summary>
     public event EventHandler<int> EUpdateScore;
-    
+
+    public event EventHandler<float> EUpdateTime;
+ 
     /// <summary>
     /// Событие конца игры
     /// </summary>
@@ -57,5 +59,10 @@ public class GameManager : MonoBehaviour
     public virtual void OnEGameOver()
     {
         EGameOver?.Invoke(this, EventArgs.Empty);
+    }
+
+    public virtual void OnEUpdateTime(float e)
+    {
+        EUpdateTime?.Invoke(this, e);
     }
 }

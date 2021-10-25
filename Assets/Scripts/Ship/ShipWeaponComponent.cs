@@ -28,17 +28,13 @@ namespace Ship
             }
         }
         
-        private void Update()
+        private void HandleFire()
         {
             if (_playerInput.FireClick && Time.time > _nextFire)
             {
                 _nextFire = Time.time + weaponSettings.FireRate;
-                HandleFire();
+                _shipWeapon.InitProjectile();
             }
-        }
-        private void HandleFire()
-        {
-            _shipWeapon.InitProjectile();
         }
         
     }
