@@ -1,24 +1,27 @@
 using UnityEngine;
 
-public interface IShipInput
+namespace Ship
 {
-    /// <summary>
-    /// Поворот
-    /// </summary>
-    float Rotation { get; }
+    public interface IShipInput
+    {
+        /// <summary>
+        /// Поворот
+        /// </summary>
+        float Rotation { get; }
     
-    /// <summary>
-    /// Движение
-    /// </summary>
-    float Thrust { get; }
+        /// <summary>
+        /// Движение
+        /// </summary>
+        float Thrust { get; }
     
-    /// <summary>
-    /// Направление движения
-    /// </summary>
-    Vector3 Route { get; }
+        /// <summary>
+        /// Направление движения
+        /// </summary>
+        Vector3 Route { get; }
    
-    /// <summary>
-    /// Метод чтения клавиш ввода
-    /// </summary>
-    void ReadInput();
+        /// <summary>
+        /// Метод чтения клавиш ввода
+        /// </summary>
+        void ReadInput();
+    }
 }

@@ -1,26 +1,67 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 
 public class Laser : MonoBehaviour
 {
     [SerializeField] 
-    private float distance;
+    private float distance = 100f;
 
-    private void Start()
+    [SerializeField] 
+    private float lifeTime = 2f;
+
+    private LineRenderer _lineRenderer;
+
+    private void Awake()
     {
-        StartCoroutine(Strecth());
+        _lineRenderer = GetComponent<LineRenderer>();
+    }
+    
+    public void Draw()
+    {
+        _lineRenderer.enabled = true;
+
+        StartCoroutine(UpdateLaserCoroutine(lifeTime));
     }
 
-    private IEnumerator Strecth()
+    private void Update()
     {
-        while (Time.deltaTime != 1)
+        _lineRenderer.SetPosition(0, transform.position);
+    }
+
+    private void DisableLaser()
+    {
+        _lineRenderer.enabled = false;
+        ObjectPooler.Instance.ReturnToPool(gameObject);
+    }
+
+    private IEnumerator UpdateLaserCoroutine(float timer)
+    {
+        while (timer >= Time.deltaTime)
         {
-            Mathf.Lerp(transform.localScale.z, distance, Time.deltaTime * 1);
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, transform.forward, out hit))
+            {
+                if (hit. collider)
+                {
+                    _lineRenderer.SetPosition(1, hit.point);
+                    
+                    if (hit.collider.CompareTag("Asteroid") || hit.collider.CompareTag("Enemy"))
+                    {
+                        hit.collider.GetComponent<EnemyHealth>().Die();
+                    }
+                }
+            }
+            else _lineRenderer.SetPosition(1, transform.forward * distance);
+
+            timer -= Time.deltaTime;
             yield return null;
         }
+        
+        DisableLaser();
+        
     }
+    
     
 }

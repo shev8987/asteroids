@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 1984878892794303847}
   - component: {fileID: 1984878892794303845}
   - component: {fileID: 1984878892794303846}
-  - component: {fileID: 5517390162958979842}
   - component: {fileID: 2620268967984680331}
   - component: {fileID: 8508318333564340988}
+  - component: {fileID: 7181419187049851888}
+  - component: {fileID: 103794935193864053}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -66,21 +67,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a49a784b56f68334d9db2f3437ce9fcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5517390162958979842
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1984878892794303850}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 659933fbdfdeb694c9d0e744c1b37989, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _projectilePrefab: {fileID: 5808265828042245663, guid: ac8f0c5c6e7f07f43b7b79677931e64e, type: 3}
-  _firePoint: {fileID: 6446403642993611856}
-  _fireRate: 1
 --- !u!114 &2620268967984680331
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109,6 +95,36 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!114 &7181419187049851888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1984878892794303850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 659933fbdfdeb694c9d0e744c1b37989, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponSettings: {fileID: 11400000, guid: 0e39d4f39477c154b9d677196d0cc63b, type: 2}
+  firePoint: {fileID: 6446403642993611856}
+--- !u!114 &103794935193864053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1984878892794303850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1156816da938a54da0f31bd35a5b653, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponSettings: {fileID: 11400000, guid: 21fbbf5af31297a4b91655d4d130994d, type: 2}
+  firePoint: {fileID: 6446403642993611856}
+  countShot: 2
+  reloadingTime: 5
 --- !u!1 &1984878893598200804
 GameObject:
   m_ObjectHideFlags: 0

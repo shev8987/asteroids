@@ -1,4 +1,5 @@
 using System;
+using Ship;
 using UnityEngine;
 using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
