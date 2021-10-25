@@ -24,62 +24,68 @@ namespace Ship
         
         private float _nextFire = 0f;
 
+        /// <summary>
+        /// Временная переменная возможности стрелять
+        /// </summary>
         private bool _IsCanFire;
+        
+        /// <summary>
+        /// Временная переменная количества выстрелов
+        /// </summary>
+        private int _countShot;
         
         private void Awake()
         {
             _playerInput = GetComponent<PlayerInput>();
             _shipWeapon = new ShipWeapon(weaponSettings, firePoint);
-            
-            if (_playerInput != null)
-            {
-                _playerInput.OnFireAdditional += HandleFireAdditional;
-            }
         }
 
         private void Start()
         {
             _IsCanFire = true;
+            _countShot = countShot;
         }
 
         private void Update()
         {
-            if (!_IsCanFire) return;
-            
-            if (_playerInput.FireClickAdditional && Time.time > _nextFire)
+            if (_IsCanFire)
             {
-                _nextFire = Time.time + weaponSettings.FireRate;
-                Fire(countShot);
-            }
-        }
-
-        private void Fire(float countFire)
-        {
-            if (countFire > 0)
-            {
-                countFire--;
-                HandleFireAdditional();
+                if (_playerInput.FireClickAdditional && Time.time > _nextFire)
+                {
+                    _nextFire = Time.time + weaponSettings.FireRate;
+                    
+                    if (_countShot > 0)
+                    {
+                        _countShot--;
+                        HandleFireAdditional();
+                    }
+                    else
+                    {
+                        _IsCanFire = false;
+                    }
+                }
             }
             else
             {
-                _IsCanFire = false;
-                StartCoroutine(CanFireCoroutine());
+                StartCoroutine(ReloadCoroutine());
             }
-        }
 
-        private IEnumerator CanFireCoroutine()
-        {
-            yield return new WaitForSeconds(reloadingTime);
-            _IsCanFire = true;
         }
-
-        private IEnumerator TimerCoroutine()
+        
+        /// <summary>
+        /// Корутина перезарядки
+        /// </summary>
+        /// <returns></returns>
+        private IEnumerator ReloadCoroutine()
         {
             while (reloadingTime > 0)
             {
                 reloadingTime -= Time.deltaTime;
                 yield return null;
             }
+            
+            _IsCanFire = true;
+            _countShot = countShot;
         }
         
         private void HandleFireAdditional()
