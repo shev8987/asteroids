@@ -47,7 +47,11 @@ public class Laser : MonoBehaviour
                 {
                     _lineRenderer.SetPosition(1, hit.point);
                     
-                    if (hit.collider.CompareTag("Asteroid") || hit.collider.CompareTag("Enemy"))
+                    if ((hit.collider.CompareTag("Asteroid") || hit.collider.CompareTag("Enemy")) 
+                        && hit.collider.transform.position. z <= GameManager.Instance.BorderZ
+                        && hit.collider.transform.position. z >= -GameManager.Instance.BorderZ
+                        && hit.collider.transform.position. z <= GameManager.Instance.BorderX
+                        && hit.collider.transform.position. z >= -GameManager.Instance.BorderX)
                     {
                         hit.collider.GetComponent<EnemyHealth>().Die();
                     }
