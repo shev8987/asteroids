@@ -51,7 +51,7 @@ namespace UI
                     break;
                 }
 
-                laserText.text = reloadingTime.ToString();
+                laserText.text = Mathf.RoundToInt(reloadingTime).ToString();
                 reloadingTime -= Time.deltaTime;
                 yield return null;
             } 
