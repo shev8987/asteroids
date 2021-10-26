@@ -48,44 +48,50 @@ namespace Ship
 
         private void Update()
         {
+            if (_countShot <= 0)
+            {
+                _IsCanFire = false;
+                Debug.Log("Нельзя");
+            }
+            
             if (_IsCanFire)
             {
-                if (_playerInput.FireClickAdditional && Time.time > _nextFire)
+                Debug.Log("Можно");
+                if (_playerInput.FireClickAdditional && Time.time > _nextFire && _countShot  > 0)
                 {
                     _nextFire = Time.time + weaponSettings.FireRate;
-                    
-                    if (_countShot > 0)
-                    {
-                        _countShot--;
-                        HandleFireAdditional();
-                    }
-                    else
-                    {
-                        _IsCanFire = false;
-                    }
+
+                    _countShot --;
+                    HandleFireAdditional();
                 }
             }
             else
             {
-                StartCoroutine(ReloadCoroutine());
+                GameManager.Instance.OnEUpdateTime(reloadingTime);
+                StartCoroutine(ReloadCoroutine(reloadingTime));
             }
 
         }
-        
+
         /// <summary>
         /// Корутина перезарядки
         /// </summary>
         /// <returns></returns>
-        private IEnumerator ReloadCoroutine()
+        private IEnumerator ReloadCoroutine(float time)
         {
-            while (reloadingTime > 0)
+            Debug.Log("перезардка");
+            
+            while (time > 0)
             {
-                reloadingTime -= Time.deltaTime;
+                time -= Time.deltaTime;
                 yield return null;
             }
-            
-            _IsCanFire = true;
-            _countShot = countShot;
+
+            if (time <= 0)
+            {
+                _IsCanFire = true;
+                _countShot = countShot;
+            }
         }
         
         private void HandleFireAdditional()
